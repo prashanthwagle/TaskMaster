@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block head_title %}<title>login</title> {% endblock %}
+
+<!--
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+<link rel="stylesheet" href="../static/css/pure-min.css"></head>
+-->
+
+{% block body_content %}
+
+<br>
+<h2 class="center"> TaskMaster Login</h2>
+<br>
+<form action="/login" method="post">
+        Username: <input id="name-id" type="text" name="username"><br><br>
+        Password: <input id="password-id" type="password" name="password"><br><br>
+        <input type="submit" style="color:black;" value="Submit"></input>
+</form>
+{% endblock %}

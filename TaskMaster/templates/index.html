@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block head_title %} <title>index</title>{% endblock %}
+{% block body_content %}
+<br>
+{% if not user_id %}
+<div class="headers">
+    <div>Welcome to TaskMaster!</div>
+    <br><br><br>
+    <a class="button" href="/login" style="color:black">Sign In</a><br><br>
+    <a class="button" href="/sign" style="color:black">Create Account</a>
+</div>
+{% else %}
+<form method="get" action="/check">
+    <button type="submit" style="color:black; font-family: monospace;" >Checkout All Tasks</button>
+</form>
+<form method="get" action="/logout">
+    <button type="submit" style="color:black; font-family: monospace;">Logout</button>
+</form>
+
+<div class="center">
+    <h1>Todo</h1>
+
+    <form action={{url_for("add")}} method="post">
+        <input type="text" placeholder="Add Todo" name="todo">
+        <input style="color:black; font-family: monospace;" type="submit" value="Add">
+    </form>
+</div>
+<br>
+<table >
+    <thead>
+    <tr>
+        <th>Sl. No.</th>
+        <th>Task</th>
+        <th>Time</th>
+        <th>Action</th>
+        <th>Username</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% if todos %}
+    {% for t in todos %}
+    <tr>
+        <td>{{ t.id }}</td>
+        <td>{{ t.task }}</td>
+        <td>{{ t.timestamp }}</td>
+        <td><a href={{url_for('delete', todo_id=t.id)}}>complete</a></td>
+        <td>{{ t.user.username }}</td>
+    </tr>
+    {% endfor %}
+    {% endif %}
+    {% endif %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,23 @@
+body{
+    font-family: monospace;
+    font-size: xx-large;
+    color: white;
+    background-color: black;
+    text-align: center;
+}
+
+.button{
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    transition-duration: 0.4s;
+    color: black;
+  }
+
+  table, th, td {
+      margin-left: auto;
+      margin-right: auto;
+      border-collapse: collapse;
+    border: 1px solid white;
+  }
+  
